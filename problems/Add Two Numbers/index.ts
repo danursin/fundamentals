@@ -44,6 +44,24 @@ export const makeSameLength = (l1: ListNode, l2: ListNode): void => {
     makeSameLength(l1.next, l2.next);
 };
 
+function sumNodes(l1: ListNode, l2: ListNode, carryOne: boolean): ListNode | null {
+    let localSum = l1.val + l2.val;
+    if (carryOne) {
+        localSum += 1;
+    }
+
+    const localCarryOne = localSum > 9;
+    if (localCarryOne) {
+        localSum -= 10;
+    }
+
+    if (!l1.next || !l2.next) {
+        return new ListNode(localSum, localCarryOne ? new ListNode(1) : undefined);
+    }
+
+    return new ListNode(localSum, sumNodes(l1.next, l2.next, localCarryOne));
+}
+
 export function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
     if (!l1 && !l2) {
         return null;
@@ -58,24 +76,6 @@ export function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNod
     }
 
     makeSameLength(l1, l2);
-
-    function sumNodes(l1: ListNode, l2: ListNode, carryOne: boolean): ListNode | null {
-        let localSum = l1.val + l2.val;
-        if (carryOne) {
-            localSum += 1;
-        }
-
-        const localCarryOne = localSum > 9;
-        if (localCarryOne) {
-            localSum -= 10;
-        }
-
-        if (!l1.next || !l2.next) {
-            return new ListNode(localSum, localCarryOne ? new ListNode(1) : undefined);
-        }
-
-        return new ListNode(localSum, sumNodes(l1.next, l2.next, localCarryOne));
-    }
 
     return sumNodes(l1, l2, false);
 }
