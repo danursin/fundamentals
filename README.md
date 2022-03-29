@@ -1,4 +1,4 @@
-# Fundamentals
+# Fundamentals [![Test Coverage](https://codecov.io/gh/danursin/fundamentals/branch/main/graph/badge.svg?token=NT6IGEPIX6)](https://codecov.io/gh/danursin/fundamentals)
 
 ## Running tests
 
