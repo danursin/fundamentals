@@ -8,8 +8,6 @@ export function disappear(grid: number[][], x: number, y: number): number {
     const compareVal = grid[x][y];
 
     function helper(x_inner: number, y_inner: number): void {
-        console.log(`Checking [${x_inner}, ${y_inner}]`);
-
         if (visited.some(([valx, valy]) => valx === x_inner && valy === y_inner)) {
             return;
         }

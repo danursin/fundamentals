@@ -30,3 +30,8 @@ test("Length after push from uninitialized list", () => {
     }
     expect(list.length()).toEqual(5);
 });
+
+test("Tail with no initialization", () => {
+    const list = new LinkedList();
+    expect(() => list.tail()).toThrow();
+});
