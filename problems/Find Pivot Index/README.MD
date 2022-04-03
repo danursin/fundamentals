@@ -1,4 +1,4 @@
-[Find Pivot Index](https://leetcode.com/problems/find-pivot-index/)
+# [Find Pivot Index](https://leetcode.com/problems/find-pivot-index/)
 
 Given an array of integers nums, calculate the pivot index of this array.
 
